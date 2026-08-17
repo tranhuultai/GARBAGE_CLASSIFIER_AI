@@ -1,2 +1,2 @@
 # GARBAGE_CLASSIFIER_AI
-Ứng dụng phân loiaj rác thải bằng hình ảnh
+Ứng dụng phân loại rác thải bằng hình ảnh
