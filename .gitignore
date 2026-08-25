@@ -1,1 +1,38 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.eggs/
 
+# Virtual env
+.venv/
+venv/
+env/
+
+# Du lieu goc (hang nghin anh, qua nang, tai lai duoc tu Kaggle) - KHONG commit
+CODE/data/raw/**
+CODE/data/processed/**
+!CODE/data/raw/.gitkeep
+!CODE/data/processed/.gitkeep
+
+# LUU Y: models/best_model.keras (~9MB) KHONG bi ignore - PHAI commit sau khi train xong.
+# Giang vien se clone repo va chay thang 'python main.py app', khong train lai tu dau.
+# Chi ignore cac ban nhap/thu nghiem dat ten rieng, khong phai best_model.keras.
+CODE/models/model_v*.keras
+CODE/models/model_v*.h5
+
+# Kaggle credentials - KHONG BAO GIO commit file nay
+kaggle.json
+.kaggle/
+
+# Log
+*.log
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Streamlit
+.streamlit/
