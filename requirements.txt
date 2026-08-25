@@ -1,5 +1,5 @@
 # Keras 3 chạy trên PyTorch (không dùng TensorFlow) - hoạt động trên mọi bản Python
-# (khó hơn TensorFlow, thường chỉ hỗ trợ tới Python 3.12). Xem CLAUDE.md.
+# (khó hơn TensorFlow, thường chỉ hỗ trợ tới Python 3.12).
 keras>=3.0
 torch>=2.0
 streamlit>=1.30
