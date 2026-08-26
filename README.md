@@ -27,8 +27,7 @@ Nhớ chạy mọi lệnh ở trên trong thư mục `CODE/`, không thì import
 
 ## Lưu ý môi trường
 
-Dùng Keras 3 chạy trên PyTorch chứ không dùng TensorFlow, vì lúc setup máy Python bản mới
-cài TensorFlow không được (TensorFlow thường chỉ hỗ trợ vài bản Python cũ hơn).
+Dùng Keras 3 chạy trên PyTorch, không dùng TensorFlow.
 
 Sau khi train xong phải commit `CODE/models/best_model.keras` lên repo - máy khác pull về
 chạy thẳng `python main.py` sẽ báo lỗi thiếu model nếu file này chưa có.
