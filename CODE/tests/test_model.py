@@ -7,8 +7,9 @@ os.environ.setdefault("KERAS_BACKEND", "torch")
 import numpy as np
 import pytest
 
+# pylint: disable=import-error
 # import-error: pylint khong biet conftest.py da them src/ vao sys.path luc chay pytest
-from model import build_model, unfreeze_for_finetune, _find_base_model  # pylint: disable=import-error
+from model import build_model, unfreeze_for_finetune, _find_base_model
 
 NUM_CLASSES = 6
 

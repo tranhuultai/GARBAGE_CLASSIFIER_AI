@@ -12,8 +12,8 @@ from PIL import Image
 
 pytest.importorskip("data_processing", reason="data_processing.py chua co tren nhanh nay")
 
-import train  # pylint: disable=import-error
 from data_processing import ImageFolderDataset, CLASS_NAMES  # pylint: disable=import-error
+import train  # pylint: disable=import-error
 
 
 def _tao_du_lieu_gia(thu_muc_goc, so_anh_moi_lop=3):

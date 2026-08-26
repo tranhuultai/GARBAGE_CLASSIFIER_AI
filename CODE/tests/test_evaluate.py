@@ -12,8 +12,8 @@ from PIL import Image
 
 pytest.importorskip("data_processing", reason="data_processing.py chua co tren nhanh nay")
 
-import evaluate  # pylint: disable=import-error
 from data_processing import CLASS_NAMES  # pylint: disable=import-error
+import evaluate  # pylint: disable=import-error
 
 
 def test_save_confusion_matrix_tao_file(tmp_path, monkeypatch):
@@ -32,8 +32,9 @@ def test_save_confusion_matrix_tao_file(tmp_path, monkeypatch):
 
 def test_main_chay_duoc_va_ve_duoc_confusion_matrix(tmp_path, monkeypatch):
     """main() phai nap model, du doan tren tap test gia, va ve confusion matrix - khong crash."""
-    from model import build_model  # pylint: disable=import-error,import-outside-toplevel
-    from data_processing import ImageFolderDataset  # pylint: disable=import-error,import-outside-toplevel
+    # pylint: disable=import-error,import-outside-toplevel
+    from model import build_model
+    from data_processing import ImageFolderDataset
 
     for class_name in CLASS_NAMES:
         class_dir = Path(tmp_path, "test", class_name)
