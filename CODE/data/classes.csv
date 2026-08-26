@@ -1,7 +1,0 @@
-class_id,label_en,label_vi,bin_color,recyclable,disposal_guidance,examples
-0,cardboard,Giay bia,xanh lá,có,"Gấp phẳng, giữ khô và bỏ vào thùng giấy; không dùng cho bìa dính dầu mỡ.","thùng carton; hộp giao hàng; hộp ngũ cốc"
-1,glass,Thủy tinh,xanh lá,có,"Rửa sạch và bỏ riêng vào thùng thủy tinh; bọc kín mảnh vỡ trước khi vận chuyển.","chai thủy tinh; lọ thủy tinh; hũ thủy tinh"
-2,metal,Kim loại,xám,có,"Làm sạch lon và vật kim loại; ép gọn nếu an toàn rồi bỏ vào thùng tái chế.","lon nước; lon đồ hộp; nắp kim loại"
-3,paper,Giấy,xanh lá,có,"Giữ giấy khô, sạch; bỏ vào thùng giấy và tách khỏi giấy than hoặc giấy dính hóa chất.","giấy in; báo; túi giấy"
-4,plastic,Nhựa,vàng,có,"Đổ hết chất lỏng, tráng nhanh nếu cần và bỏ vào thùng nhựa tái chế.","chai nhựa; hộp nhựa; túi nhựa sạch"
-5,trash,Rác còn lại,đen,không,"Bỏ vào thùng rác còn lại; không trộn pin, bóng đèn, thuốc hoặc chất nguy hại.","khăn giấy bẩn; gốm vỡ; rác hỗn hợp"
