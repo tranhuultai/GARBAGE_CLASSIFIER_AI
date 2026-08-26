@@ -56,3 +56,17 @@ def unfreeze_for_finetune(model, num_layers=30, learning_rate=1e-5):
         metrics=["accuracy"],
     )
     return model
+
+
+def main():
+    """Kiem tra nhanh: build model voi 6 lop, in summary, thu predict voi anh gia."""
+    model = build_model(num_classes=6)
+    model.summary()
+
+    dummy_image = np.zeros((1, 224, 224, 3), dtype="float32")
+    output = model.predict(dummy_image, verbose=0)  # type: ignore
+    print(f"Output shape: {output.shape} (ky vong (1, 6)), tong xac suat: {output.sum():.4f}")
+
+
+if __name__ == "__main__":
+    main()
