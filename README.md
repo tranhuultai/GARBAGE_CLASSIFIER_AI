@@ -16,9 +16,9 @@
 pip install -r requirements.txt
 cd CODE
 python src/data_processing.py    # tải dataset, chia train/val/test
-python src/train.py              # train model, luu vao models/best_model.keras
-python src/evaluate.py           # xem accuracy va confusion matrix
-python main.py                   # mo app demo
+python src/train.py              # train model, lưu vào models/best_model.keras
+python src/evaluate.py           # xem accuracy và confusion matrix
+python main.py                   # mở app demo
 ```
 
 Muốn fine-tune thì chạy thêm `python src/train.py --finetune`.
