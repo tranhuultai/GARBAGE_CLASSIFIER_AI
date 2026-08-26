@@ -3,11 +3,21 @@ __pycache__/
 *.py[cod]
 *.egg-info/
 .eggs/
+.pytest_cache/
 
 # Virtual env
 .venv/
 venv/
 env/
+
+# Credentials, khong duoc commit
+kaggle.json
+.kaggle/
+.env
+.env.*
+*.pem
+*.key
+secrets.toml
 
 # Du lieu goc, tai lai duoc tu Kaggle
 CODE/data/raw/**
@@ -19,10 +29,6 @@ CODE/data/processed/**
 # Chi ignore cac ban nhap dat ten model_v*.
 CODE/models/model_v*.keras
 CODE/models/model_v*.h5
-
-# Kaggle credentials, khong duoc commit file nay
-kaggle.json
-.kaggle/
 
 # Log
 *.log

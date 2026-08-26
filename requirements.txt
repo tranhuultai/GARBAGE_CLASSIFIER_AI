@@ -8,3 +8,7 @@ pillow
 scikit-learn
 matplotlib
 kagglehub
+
+# Dung de test va lint, khong can cho luc chay app that
+pytest
+pylint
