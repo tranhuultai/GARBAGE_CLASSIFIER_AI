@@ -19,11 +19,9 @@ kaggle.json
 *.key
 secrets.toml
 
-# Du lieu goc, tai lai duoc tu Kaggle
-CODE/data/raw/**
-CODE/data/processed/**
-!CODE/data/raw/.gitkeep
-!CODE/data/processed/.gitkeep
+# Du lieu goc, data_processing.py tu tai va tu tao thu muc, khong can commit gi ca
+CODE/data/raw/
+CODE/data/processed/
 
 # best_model.keras khong ignore, phai commit sau khi train de chay duoc ma khong can train lai.
 # Chi ignore cac ban nhap dat ten model_v*.
