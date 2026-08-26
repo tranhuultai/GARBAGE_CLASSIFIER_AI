@@ -89,3 +89,16 @@ def finetune(epochs=FINETUNE_EPOCHS):
         f"hon {baseline_val_accuracy:.4f} (baseline) - neu khong, file van la ban baseline cu.\n"
         "Kiem tra lai bang 'python src/evaluate.py'."
     )
+
+
+def main(argv=None):
+    """Chay 'python src/train.py' (baseline) hoac them '--finetune' de fine-tune."""
+    argv = sys.argv[1:] if argv is None else argv
+    if "--finetune" in argv:
+        finetune()
+    else:
+        train_baseline()
+
+
+if __name__ == "__main__":
+    main()
