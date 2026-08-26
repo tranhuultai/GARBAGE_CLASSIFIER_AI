@@ -1,5 +1,4 @@
-"""test_train.py - kiem tra train.py: main() goi dung ham, train_baseline/finetune chay duoc.
-Dung du lieu gia (vai anh ngau nhien) thay vi dataset that de test nhanh, khong can Kaggle.
+"""test_train.py - kiem tra train.py, dung du lieu gia thay vi dataset that de test nhanh.
 Neu data_processing.py chua co tren nhanh nay thi bo qua ca file (xem importorskip ben duoi)."""
 import os
 os.environ.setdefault("KERAS_BACKEND", "torch")

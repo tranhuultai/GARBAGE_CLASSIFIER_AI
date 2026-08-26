@@ -65,8 +65,7 @@ def finetune(epochs=FINETUNE_EPOCHS):
 
     callbacks = [
         # initial_value_threshold = accuracy baseline - chi ghi de best_model.keras neu
-        # fine-tune THAT SU tot hon, khong de epoch dau fine-tune (thuong te hon) ghi de mat
-        # ban baseline tot da co.
+        # fine-tune that su tot hon, khong de fine-tune te hon ghi de mat ban baseline tot.
         ModelCheckpoint(
             BEST_MODEL_PATH,
             monitor="val_accuracy",
