@@ -9,19 +9,18 @@ __pycache__/
 venv/
 env/
 
-# Du lieu goc (hang nghin anh, qua nang, tai lai duoc tu Kaggle) - KHONG commit
+# Du lieu goc, tai lai duoc tu Kaggle
 CODE/data/raw/**
 CODE/data/processed/**
 !CODE/data/raw/.gitkeep
 !CODE/data/processed/.gitkeep
 
-# LUU Y: models/best_model.keras (~9MB) KHONG bi ignore - PHAI commit sau khi train xong.
-# Giang vien se clone repo va chay thang 'python main.py app', khong train lai tu dau.
-# Chi ignore cac ban nhap/thu nghiem dat ten rieng, khong phai best_model.keras.
+# best_model.keras khong ignore, phai commit sau khi train de chay duoc ma khong can train lai.
+# Chi ignore cac ban nhap dat ten model_v*.
 CODE/models/model_v*.keras
 CODE/models/model_v*.h5
 
-# Kaggle credentials - KHONG BAO GIO commit file nay
+# Kaggle credentials, khong duoc commit file nay
 kaggle.json
 .kaggle/
 
