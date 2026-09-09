@@ -1,11 +1,14 @@
 """evaluate.py - danh gia model: accuracy, classification report, confusion matrix."""
 import os
 os.environ.setdefault("KERAS_BACKEND", "torch")  # phai dat truoc khi import keras lan dau
+os.environ.setdefault("MPLBACKEND", "Agg")
 
 # pylint: disable=wrong-import-position
 import sys
 
 import numpy as np
+import matplotlib
+matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 from keras.models import load_model
 from sklearn.metrics import classification_report, accuracy_score, ConfusionMatrixDisplay

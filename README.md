@@ -36,7 +36,7 @@ python src/evaluate.py           # accuracy, F1, confusion matrix
 
 ```bash
 cd CODE
-pytest tests/
+python -m pytest
 ```
 
 Dùng ảnh giả để chạy nhanh, không cần dataset thật. Cùng bộ lệnh này chạy tự động trên

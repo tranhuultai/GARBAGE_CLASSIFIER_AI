@@ -1,11 +1,14 @@
 """train.py - huan luyen model baseline, va (tuy chon, dung --finetune) fine-tune."""
 import os
 os.environ.setdefault("KERAS_BACKEND", "torch")  # phai dat truoc khi import keras lan dau
+os.environ.setdefault("MPLBACKEND", "Agg")
 
 # pylint: disable=wrong-import-position
 import sys
 
 import numpy as np
+import matplotlib
+matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 from keras.callbacks import ModelCheckpoint, EarlyStopping
 from keras.models import load_model
