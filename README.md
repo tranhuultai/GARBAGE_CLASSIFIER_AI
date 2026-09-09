@@ -5,7 +5,7 @@
 ## Cấu trúc repo
 
 - `CODE/` - code
-- `DOC/` - báo cáo (`DOC/report.md`)
+- `DOC/` - báo cáo đồ án
 - `SLIDES/` - slide thuyết trình
 - `EXTRA/` - ảnh demo dự phòng và tài liệu phụ
 - `requirements.txt` - danh sách thư viện cần cài
