@@ -1,5 +1,4 @@
-"""main.py - DUNG LUC DEMO THAT truoc thay: mo thang giao dien Streamlit, khong menu.
-Chay tu thu muc CODE/. Cac buoc khac (data/train/evaluate) chay truc tiep qua src/*.py."""
+"""main.py - mo thang giao dien demo, khong menu. Chay tu thu muc CODE/."""
 import os
 os.environ.setdefault("KERAS_BACKEND", "torch")  # phai dat truoc khi import keras lan dau
 
@@ -22,7 +21,7 @@ def main():
         sys.exit(1)
 
     print("Dang mo giao dien demo...")
-    # Dung "python -m streamlit" (khong phai lenh "streamlit" tran) de khong phu thuoc PATH.
+    # python -m streamlit de khong phu thuoc PATH
     subprocess.run([sys.executable, "-m", "streamlit", "run", "app/app.py"], check=False)
 
 

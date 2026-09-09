@@ -16,8 +16,7 @@ DATA_RAW_DIR = "data/raw"
 DATA_PROCESSED_DIR = "data/processed"
 KAGGLE_DATASET = "asdasdasasdas/garbage-classification"
 
-# Thu tu danh sach nay quyet dinh chi so nhan (0..5) luc train - app.py va evaluate.py
-# phai dung dung thu tu nay thi nhan du doan moi khop.
+# thu tu = chi so nhan (0..5), app.py va evaluate.py phai giong y het thu tu nay
 CLASS_NAMES = ["cardboard", "glass", "metal", "paper", "plastic", "trash"]
 
 IMG_SIZE = (224, 224)
@@ -129,16 +128,14 @@ def split_dataset():
 
 
 class ImageFolderDataset(keras.utils.PyDataset):
-    """Doc anh tu <thu_muc>/<lop>/*.jpg theo tung batch - khong dung TensorFlow.
-    Augmentation KHONG nam o day - no nam trong model.py (cac lop Random*)."""
+    """Doc anh theo batch, tu viet vi khong dung TensorFlow. Augmentation o model.py."""
 
     def __init__(self, directory, batch_size=32, shuffle=True, **kwargs):
         super().__init__(**kwargs)
         self.batch_size = batch_size
         self.shuffle = shuffle
 
-        # Moi phan tu la 1 cap (duong dan anh, chi so lop) - duyet qua tung lop,
-        # trong moi lop duyet qua tung anh, roi gop lai thanh 1 danh sach.
+        # samples = list cac cap (duong dan anh, chi so lop)
         self.samples = []
         for class_index, class_name in enumerate(CLASS_NAMES):
             image_paths = sorted(Path(directory, class_name).glob("*"))

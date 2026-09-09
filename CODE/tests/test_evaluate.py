@@ -1,5 +1,4 @@
-"""test_evaluate.py - kiem tra evaluate.py: ve confusion matrix, chay main() tren model gia.
-Neu data_processing.py chua co tren nhanh nay thi bo qua ca file (xem importorskip ben duoi)."""
+"""test_evaluate.py - test evaluate.py bang model gia, bo qua neu chua co data_processing.py."""
 import os
 os.environ.setdefault("KERAS_BACKEND", "torch")
 
@@ -21,7 +20,7 @@ def test_save_confusion_matrix_tao_file(tmp_path, monkeypatch):
     matrix_path = tmp_path / "confusion_matrix.png"
     monkeypatch.setattr(evaluate, "CONFUSION_MATRIX_PATH", str(matrix_path))
 
-    # phai co du ca 6 nhan (0..5) thi display_labels=CLASS_NAMES (6 ten) moi khop so luong
+    # can du 6 nhan (0..5) de khop display_labels=CLASS_NAMES
     y_true = np.array([0, 1, 2, 3, 4, 5, 0, 1])
     y_pred = np.array([0, 1, 1, 3, 4, 5, 0, 2])
     # pylint: disable=protected-access

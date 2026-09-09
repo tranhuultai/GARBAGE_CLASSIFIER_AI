@@ -1,5 +1,4 @@
-"""test_train.py - kiem tra train.py, dung du lieu gia thay vi dataset that de test nhanh.
-Neu data_processing.py chua co tren nhanh nay thi bo qua ca file (xem importorskip ben duoi)."""
+"""test_train.py - test train.py bang du lieu gia, bo qua file neu chua co data_processing.py."""
 import os
 os.environ.setdefault("KERAS_BACKEND", "torch")
 
@@ -69,8 +68,7 @@ def test_main_co_finetune_goi_finetune(monkeypatch):
 
 def test_train_baseline_chay_va_luu_model(du_lieu_gia, tmp_path, monkeypatch):
     # pylint: disable=unused-argument
-    """train_baseline() phai chay het 1 epoch, luu model that va bieu do loss/accuracy.
-    du_lieu_gia khong dung truc tiep - fixture nay chi de tao du lieu gia + monkeypatch san."""
+    """train_baseline() phai chay 1 epoch, luu model that va bieu do loss/accuracy."""
     model_path = tmp_path / "best_model.keras"
     history_path = tmp_path / "training_history.png"
     monkeypatch.setattr(train, "BEST_MODEL_PATH", str(model_path))
@@ -84,8 +82,7 @@ def test_train_baseline_chay_va_luu_model(du_lieu_gia, tmp_path, monkeypatch):
 
 def test_finetune_chay_duoc_tren_model_da_co(du_lieu_gia, tmp_path, monkeypatch):
     # pylint: disable=unused-argument
-    """finetune() phai nap duoc model co san, chay 1 epoch, khong crash.
-    du_lieu_gia khong dung truc tiep - fixture nay chi de tao du lieu gia + monkeypatch san."""
+    """finetune() phai nap duoc model co san va chay 1 epoch, khong crash."""
     from model import build_model  # pylint: disable=import-error,import-outside-toplevel
 
     model_path = tmp_path / "best_model.keras"

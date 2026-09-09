@@ -48,8 +48,7 @@ def train_baseline(epochs=BASELINE_EPOCHS):
     train_ds, val_ds, _ = build_datasets()
     model = build_model(num_classes=len(CLASS_NAMES))
 
-    # Neu 1 lop co it anh hon han cac lop khac, class_weight se phat nang hon loi o lop do
-    # de model khong "bo quen" lop thieu so.
+    # class_weight de model khong bo quen lop it anh hon
     sample_classes = np.array([class_index for _, class_index in train_ds.samples])
     unique_classes = np.unique(sample_classes)
     weights = compute_class_weight(
@@ -90,8 +89,7 @@ def finetune(epochs=FINETUNE_EPOCHS):
     unfreeze_for_finetune(model, num_layers=30, learning_rate=1e-5)
 
     callbacks = [
-        # initial_value_threshold = accuracy baseline - chi ghi de best_model.keras neu
-        # fine-tune that su tot hon, khong de fine-tune te hon ghi de mat ban baseline tot.
+        # initial_value_threshold: chi ghi de best_model.keras neu fine-tune tot hon baseline
         ModelCheckpoint(
             BEST_MODEL_PATH,
             monitor="val_accuracy",

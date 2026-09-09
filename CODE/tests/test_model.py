@@ -1,5 +1,4 @@
-"""test_model.py - kiem tra kien truc model.py (build_model, unfreeze_for_finetune).
-Khong can du lieu that hay model da train - chi kiem tra kien truc, shape, hanh vi dong bang."""
+"""test_model.py - test kien truc model.py, khong can du lieu that hay model da train."""
 import os
 os.environ.setdefault("KERAS_BACKEND", "torch")
 
@@ -8,7 +7,7 @@ import numpy as np
 import pytest
 
 # pylint: disable=import-error
-# import-error: pylint khong biet conftest.py da them src/ vao sys.path luc chay pytest
+# conftest.py da them src/ vao sys.path
 from model import build_model, unfreeze_for_finetune, _find_base_model
 
 NUM_CLASSES = 6
