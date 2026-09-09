@@ -259,7 +259,13 @@ def main():
             )
 
         image_file = camera_file or uploaded_file
-        image = Image.open(image_file) if image_file is not None else None
+        image = None
+        if image_file is not None:
+            try:
+                image = Image.open(image_file)
+            # pylint: disable-next=broad-exception-caught
+            except Exception:  # anh loi/hong khong duoc lam sap app luc demo
+                st.error("Không đọc được ảnh này. Thử chọn ảnh khác.")
         if image is not None:
             st.image(image, caption="Ảnh đã chọn", use_container_width=True)
 
