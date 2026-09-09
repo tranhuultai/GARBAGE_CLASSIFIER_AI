@@ -6,6 +6,7 @@ os.environ.setdefault("KERAS_BACKEND", "torch")  # phai dat truoc khi import ker
 import sys
 
 import numpy as np
+import matplotlib.pyplot as plt
 from keras.callbacks import ModelCheckpoint, EarlyStopping
 from keras.models import load_model
 from sklearn.utils.class_weight import compute_class_weight
@@ -14,8 +15,32 @@ from data_processing import build_datasets, CLASS_NAMES
 from model import build_model, unfreeze_for_finetune
 
 BEST_MODEL_PATH = "models/best_model.keras"
+HISTORY_PLOT_PATH = "docs/training_history.png"
 BASELINE_EPOCHS = 15
 FINETUNE_EPOCHS = 5
+
+
+def _save_history_plot(history):
+    """Ve va luu bieu do loss/accuracy qua tung epoch vao HISTORY_PLOT_PATH."""
+    os.makedirs(os.path.dirname(HISTORY_PLOT_PATH), exist_ok=True)
+    fig, (ax_loss, ax_acc) = plt.subplots(1, 2, figsize=(11, 4))
+
+    ax_loss.plot(history.history["loss"], label="train")
+    ax_loss.plot(history.history["val_loss"], label="val")
+    ax_loss.set_title("Loss qua tung epoch")
+    ax_loss.set_xlabel("Epoch")
+    ax_loss.legend()
+
+    ax_acc.plot(history.history["accuracy"], label="train")
+    ax_acc.plot(history.history["val_accuracy"], label="val")
+    ax_acc.set_title("Accuracy qua tung epoch")
+    ax_acc.set_xlabel("Epoch")
+    ax_acc.legend()
+
+    fig.tight_layout()
+    fig.savefig(HISTORY_PLOT_PATH)
+    plt.close(fig)
+    print(f"Da luu bieu do loss/accuracy vao {HISTORY_PLOT_PATH}")
 
 
 def train_baseline(epochs=BASELINE_EPOCHS):
@@ -42,13 +67,14 @@ def train_baseline(epochs=BASELINE_EPOCHS):
         f"Bat dau train baseline: {epochs} epoch, "
         f"{len(train_ds.samples)} anh train, {len(val_ds.samples)} anh validation."
     )
-    model.fit(
+    history = model.fit(
         train_ds,
         validation_data=val_ds,
         epochs=epochs,
         class_weight=class_weight,
         callbacks=callbacks,
     )
+    _save_history_plot(history)
     print(f"Da luu model tot nhat (theo val_accuracy) vao {BEST_MODEL_PATH}")
 
 
@@ -77,12 +103,13 @@ def finetune(epochs=FINETUNE_EPOCHS):
     ]
 
     print(f"Bat dau fine-tune: {epochs} epoch, learning rate rat nho (1e-5).")
-    model.fit(  # type: ignore
+    history = model.fit(  # type: ignore
         train_ds,
         validation_data=val_ds,
         epochs=epochs,
         callbacks=callbacks,
     )
+    _save_history_plot(history)
     print(
         f"Fine-tune xong. {BEST_MODEL_PATH} chi bi ghi de neu fine-tune dat val_accuracy cao "
         f"hon {baseline_val_accuracy:.4f} (baseline) - neu khong, file van la ban baseline cu.\n"

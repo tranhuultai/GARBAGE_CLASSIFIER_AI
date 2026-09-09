@@ -69,14 +69,17 @@ def test_main_co_finetune_goi_finetune(monkeypatch):
 
 def test_train_baseline_chay_va_luu_model(du_lieu_gia, tmp_path, monkeypatch):
     # pylint: disable=unused-argument
-    """train_baseline() phai chay het 1 epoch va luu duoc file model that.
+    """train_baseline() phai chay het 1 epoch, luu model that va bieu do loss/accuracy.
     du_lieu_gia khong dung truc tiep - fixture nay chi de tao du lieu gia + monkeypatch san."""
     model_path = tmp_path / "best_model.keras"
+    history_path = tmp_path / "training_history.png"
     monkeypatch.setattr(train, "BEST_MODEL_PATH", str(model_path))
+    monkeypatch.setattr(train, "HISTORY_PLOT_PATH", str(history_path))
 
     train.train_baseline(epochs=1)
 
     assert model_path.exists()
+    assert history_path.exists()
 
 
 def test_finetune_chay_duoc_tren_model_da_co(du_lieu_gia, tmp_path, monkeypatch):
@@ -88,6 +91,7 @@ def test_finetune_chay_duoc_tren_model_da_co(du_lieu_gia, tmp_path, monkeypatch)
     model_path = tmp_path / "best_model.keras"
     build_model(num_classes=len(CLASS_NAMES)).save(model_path)
     monkeypatch.setattr(train, "BEST_MODEL_PATH", str(model_path))
+    monkeypatch.setattr(train, "HISTORY_PLOT_PATH", str(tmp_path / "training_history.png"))
 
     train.finetune(epochs=1)
 
